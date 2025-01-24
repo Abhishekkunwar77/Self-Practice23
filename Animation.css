@@ -1,0 +1,16 @@
+.box{
+    height:100px;
+    width:100px;
+    background-color: red;
+    animation-duration:2s;
+    animation-name: animation;
+    animation-iteration-count: infinite;
+}
+@keyframes animation {
+    from{
+        background-color:red;
+    }
+    to{
+        background-color:blue;
+    }
+}

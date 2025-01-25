@@ -1,0 +1,49 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+.navbar{
+overflow:hidden;
+background-color:teal;
+
+}
+.navbar a{
+float:left;
+display:block;
+color:white;
+text-align:center;
+padding:25px;
+text-decoration:none;
+}
+.navbar a:hover{
+    background-color: chocolate;
+    transition:0.55s;
+}
+@media screen and (max-width:600px) {
+    .navbar a{
+        float:none;
+        width:100%;
+    }
+    
+}
+
+.box{
+   background-color: darkmagenta;
+    margin:10px;
+    width:300px;
+    height:100px;
+}
+.parent{
+    background-color: darkslategrey;
+    display:flex;
+    flex-direction:row; /* same as display:flex; */
+    flex-wrap: wrap;
+    height:1000px;
+    justify-content:space-around;
+    align-items:center;
+    justify-content:center; /*align item from vertical and horizontal*/
+}
+.box:hover{
+    background-color: aqua;
+}

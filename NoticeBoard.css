@@ -1,0 +1,24 @@
+.notice-board {
+    background-color: green;
+    height: 500px;
+    width: 450px;
+    overflow: hidden;
+    position: relative;
+    left: 200px;
+    top: 200px;
+    box-shadow: 5px 5px 10px solid greenyellow;
+    animation-name: nbanimation;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes nbanimation {
+    from {
+        top: 0px;
+        
+    }
+
+    to {
+        top: -700px;
+    }
+}

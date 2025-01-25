@@ -2,15 +2,35 @@
     height:100px;
     width:100px;
     background-color: red;
-    animation-duration:2s;
+    position: relative;
+    animation-duration:8s;
     animation-name: animation;
     animation-iteration-count: infinite;
 }
 @keyframes animation {
-    from{
+    0%{
         background-color:red;
+        top:0px;
+        left:0px;
     }
-    to{
+    25%{
         background-color:blue;
+        top:0px;
+        left:300px;
+    }
+    50%{
+        background-color:rgb(7, 223, 36);
+        top:300px;
+        left:300px;
+    }
+    75%{
+        background-color:rgb(213, 5, 220);
+        top:300px;
+        left:0px;
+    }
+    100%{
+        background-color:rgb(247, 14, 49);
+        left:0px;
+        top:0px;
     }
 }

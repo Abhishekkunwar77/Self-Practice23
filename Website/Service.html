@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #808080;
+            color: #fff;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 15px 30px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: orange;
+        }
+
+        /* Service Section */
+        .services {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .services h1 {
+            font-size: 48px;
+            color: orange;
+            margin-bottom: 20px;
+        }
+
+        .service-card {
+            display: inline-block;
+            width: 300px;
+            margin: 20px;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 165, 0, 0.5);
+        }
+
+        .service-card h3 {
+            color: orange;
+        }
+
+        .service-card p {
+            font-size: 16px;
+        }
+        .footer-container {
+    background-color: #222;
+    color: wheat;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px rgba(255, 165, 0, 0.7);
+    border-radius: 10px;
+    transition: all 0.5s ease;
+}
+
+.footer-container p {
+    font-size: 16px;
+    color: #e0e0e0;
+    margin: 10px 0;
+    transition: color 0.3s ease;
+}
+
+.footer-container p:hover {
+    color: #ff8c00;
+    transition: color 0.3s ease;
+}
+
+.contact-info {
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 20px;
+    animation: fadeInUp 1.2s ease-in-out;
+}
+
+.contact-info .icon {
+    font-size: 1.5em;
+    color: #ffffff;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.contact-info span,
+.contact-info a {
+    font-size: 1em;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+    color: #ff8c00;
+}
+
+.contact-info a {
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.contact-info div {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info .icon + span {
+    margin-left: 5px;
+}
+
+.contact-info div:last-child {
+    margin-bottom: 0;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.social-link {
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    color: #ff8c00;
+    transform: scale(1.2);
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html">Abhishek</a>
+        </div>
+        <div class="nav-links">
+            <li><a href="./Main.html">HOME</a></li>
+            <li><a href="./About.html">ABOUT</a></li>
+            <li><a href="./Service.html">SERVICE</a></li>
+            <li><a href="./Design.html">CONTACT</a></li>
+            <li><a href="#contact">BLOG</a></li>
+            <li><a href="#contact">PORTFOLIO</a></li>
+        </div>
+    </nav>
+
+    <div class="services">
+        <h1>Our Services</h1>
+        <div class="service-card">
+            <h3>Web Design</h3>
+            <p>Crafting visually stunning and user-friendly designs.</p>
+        </div>
+        <div class="service-card">
+            <h3>Web Development</h3>
+            <p>Building scalable and efficient web solutions.</p>
+        </div>
+        <div class="service-card">
+            <h3>SEO Optimization</h3>
+            <p>Enhancing your website's visibility in search engines.</p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <p>© <span id="year"></span> Abhishek Kunwar. All rights reserved.</p>
+            <p>Contact: (+91) 7718520329 (India), (+977) 9811936784 (Nepal)</p>
+            <p>Whatsapp: (+91) 7708520329</p>
+        
+            <div class="contact-info">
+                <div>
+                    <span class="icon"><i class="fas fa-envelope"></i></span>
+                    <span>Email:</span>
+                    <a href="mailto:abhishekkunwar2023cse@sece.ac.in">abhishekkunwar2023cse@sece.ac.in</a>
+                </div>
+                <div>
+                    <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                    <span>Address:</span>
+                    Coimbatore, Tamil Nadu, India
+                </div>
+            </div>
+        
+            <div class="social-links">
+                <a href="https://github.com/Abhishekkunwar77" class="social-link" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://mail.google.com" class="social-link" target="_blank"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://www.facebook.com/nishu.kunwar.31" class="social-link" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="https://twitter.com" class="social-link" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="https://www.instagram.com/abhishek_kunwar23/" class="social-link" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.linkedin.com" class="social-link" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </div>
+        
+    </footer>
+</body>
+</html>

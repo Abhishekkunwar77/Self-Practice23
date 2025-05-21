@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek Web Design & Development</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+        }
+
+        nav {
+            background: linear-gradient(45deg, #8b7363, #79792e);
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            font-family: 'Times New Roman', Times, serif;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        nav:hover {
+            background: linear-gradient(45deg, #ff6a00, #ff1493);
+            box-shadow: 0 10px 40px rgba(121, 231, 4, 0.6);
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 20px;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%) scaleX(0);
+            transform-origin: bottom right;
+        }
+
+        nav ul li a:hover::before {
+            transform: translate(-50%, -50%) scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        nav ul li a:hover {
+            color: #78e90e;
+            transform: scale(1.1);
+        }
+
+        /* General styling for section */
+        section {
+            padding: 50px 0;
+            color: white;
+        }
+
+        /* About section styling */
+        #about {
+            background-color: #1a1a1a;
+            text-align: center;
+        }
+
+        #about h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: orange;
+            margin-bottom: 20px;
+        }
+
+        #about p {
+            font-size: 18px;
+            color: #e0e0e0;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* Styling for individual cards in About section */
+        .about-card {
+            width: 300px;
+            padding: 20px;
+            background-color: #2b2b2b;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .about-card h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: orange;
+            margin-bottom: 10px;
+        }
+
+        .about-card p {
+            color: #ccc;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        /* Flexbox for layout of cards */
+        .about-card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Adding responsive design for mobile screens */
+        @media (max-width: 768px) {
+            .about-card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Footer Styling */
+        .footer-container {
+            background-color: #222;
+            color: wheat;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 15px rgba(255, 165, 0, 0.7);
+            border-radius: 10px;
+            transition: all 0.5s ease;
+        }
+
+        .footer-container p {
+            font-size: 16px;
+            color: #e0e0e0;
+            margin: 10px 0;
+            transition: color 0.3s ease;
+        }
+
+        .footer-container p:hover {
+            color: #ff8c00;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info {
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 20px;
+            animation: fadeInUp 1.2s ease-in-out;
+        }
+
+        .contact-info .icon {
+            font-size: 1.5em;
+            color: #ffffff;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .contact-info span,
+        .contact-info a {
+            font-size: 1em;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+            color: #ff8c00;
+        }
+
+        .contact-info a {
+            margin-left: 5px;
+            font-weight: bold;
+        }
+
+        .contact-info div {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info .icon + span {
+            margin-left: 5px;
+        }
+
+        .contact-info div:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            color: white;
+            font-size: 1.2em;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: #ff8c00;
+            transform: scale(1.2);
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="./Main.html">HOME</a></li>
+            <li><a href="./About.html">ABOUT</a></li>
+            <li><a href="./Service.html">SERVICE</a></li>
+            <li><a href="./Contact.html">CONTACT</a></li>
+            <li><a href="#contact">BLOG</a></li>
+            <li><a href="#contact">PORTFOLIO</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div>
+            <h1>About Me</h1>
+            <p>Hi, I'm Abhishek Kunwar, an intermediate web designer with a passion for creating visually stunning and
+                user-friendly websites. My journey in web design began in 2024, and since then, I've worked on a
+                few projects, I enjoy taking on new challenges that allow me to stretch my creativity and deliver
+                meaningful solutions.
+        </div>
+
+        <div class="about-card-container">
+            <div class="about-card">
+                <h2>Our Vision</h2>
+                <p>To empower individuals and businesses by designing and developing stunning, user-friendly websites
+                    and applications that inspire growth and innovation.</p>
+            </div>
+
+            <div class="about-card">
+                <h2>Our Mission</h2>
+                <p>To deliver innovative, high-quality, and aesthetically pleasing designs while maintaining a
+                    client-focused approach throughout the development process.</p>
+            </div>
+
+            <div class="about-card">
+                <h2>Our Values</h2>
+                <p>We are committed to creativity, excellence, and collaboration, ensuring that every project we
+                    undertake is a testament to our dedication and expertise.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <div class="footer-container">
+        <p>© <span id="year"></span> Abhishek Kunwar. All rights reserved.</p>
+        <p>Contact: (+91) 7718520329 (India), (+977) 9811936784 (Nepal)</p>
+        <p>Whatsapp: (+91) 7708520329</p>
+
+        <div class="contact-info">
+            <div>
+                <span class="icon"><i class="fas fa-envelope"></i></span>
+                <span>Email:</span>
+                <a href="mailto:abhishekkunwar2023cse@sece.ac.in">abhishekkunwar2023cse@sece.ac.in</a>
+            </div>
+            <div>
+                <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                <span>Address:</span>
+                Coimbatore, Tamil Nadu, India
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="https://github.com/Abhishekkunwar77" class="social-link" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://mail.google.com" class="social-link" target="_blank"><i class="fas fa-envelope"></i> Email</a>
+            <a href="https://www.facebook.com/nishu.kunwar.31" class="social-link" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="https://twitter.com" class="social-link" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+            <a href="https://www.instagram.com/abhishek_kunwar23/" class="social-link" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://www.linkedin.com" class="social-link" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice for Before and After CSS Styling</title>
+    <style>
+        h1 {
+            position: relative;
+            width: max-content;
+            cursor: pointer;
+        }
+
+        h1::before {
+            content: '';
+            background: linear-gradient(to left, red, green, yellow, blue, crimson, white);
+            height: 3px;
+            width: 100%;
+            position:absolute;
+            bottom: 0;
+            left: 0;
+            border-radius: 100px;
+            transition: width 0.5s ease-in;
+        }
+
+        h1:hover::before {
+            width: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Billionaire</h1>
+</body>
+</html>

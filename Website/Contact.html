@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #808080;
+            color: #fff;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #333, #555);
+            padding: 10px 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: orange;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: orange;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: orange;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            margin: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links.mobile {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            background: rgba(51, 51, 51, 0.9);
+            flex-direction: column;
+            gap: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-links.mobile a {
+            text-align: center;
+        }
+
+        .hamburger.active div:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active div:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links.mobile {
+                display: flex;
+            }
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .contact h1 {
+            font-size: 48px;
+            color: orange;
+            margin-bottom: 30px;
+        }
+
+        .contact p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 80%;
+            max-width: 500px;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #333;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: orange;
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
+        }
+
+        .contact-form button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: orange;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #ff8c00;
+            transform: scale(1.05);
+        }
+
+        .footer-container {
+            background-color: #222;
+            color: wheat;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* Two equal columns for map and text */
+            gap: 40px;
+            /* Increase space between map and text */
+            align-items: center;
+            /* Aligns content vertically */
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
+            /* Spacing between text lines */
+            font-size: 16px;
+        }
+
+        .contact-info p {
+            margin: 0;
+            color: #e0e0e0;
+        }
+
+        .contact-info a {
+            color: #ff8c00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+        }
+
+        .social-link {
+            color: #fff;
+            font-size: 1.5em;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-link::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #ff8c00;
+            transition: width 0.4s ease, left 0.4s ease;
+        }
+
+        .social-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .social-link:hover {
+            color: #ff8c00;
+            transform: scale(1.2);
+            text-shadow: 0 0 10px #ff8c00, 0 0 20px #ff8c00;
+        }
+
+        .map {
+            text-align: center;
+            border: 2px solid #444;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                /* Stack columns on smaller screens */
+                text-align: center;
+            }
+
+            .map {
+                margin-top: 20px;
+            }
+        }
+
+        .footer-container {
+            background-color: #222;
+            color: wheat;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* Two equal columns for map and text */
+            gap: 40px;
+            /* Increase space between map and text */
+            align-items: center;
+            /* Aligns content vertically */
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
+            /* Spacing between text lines */
+            font-size: 16px;
+        }
+
+        .contact-info p {
+            margin: 0;
+            color: #e0e0e0;
+        }
+
+        .contact-info a {
+            color: #ff8c00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-start;
+            gap: 15px;
+        }
+
+        .social-link {
+            color: #fff;
+            font-size: 1.5em;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-link::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #ff8c00;
+            transition: width 0.4s ease, left 0.4s ease;
+        }
+
+        .social-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .social-link:hover {
+            color: #ff8c00;
+            transform: scale(1.2);
+            text-shadow: 0 0 10px #ff8c00, 0 0 20px #ff8c00;
+        }
+
+        .map {
+            text-align: center;
+            border: 2px solid #444;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                /* Stack columns on smaller screens */
+                text-align: center;
+            }
+
+            .map {
+                margin-top: 20px;
+            }
+        }
+    </style>
+
+    <head>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    </head>
+
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            Abhishek <span>Kunwar</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Service</a>
+            <a href="#">Blog</a>
+            <a href="#">Portfolio</a>
+        </div>
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+
+    <div class="contact">
+        <h1>Contact Us</h1>
+        <p>We’d love to hear from you! Reach out to us through the form below.</p>
+
+        <div class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <!-- Map Section -->
+            <div class="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3546.2943901482645!2d77.05794187451775!3d10.82791325824298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba84ee37569ae7f%3A0x3c5b1824b6e79192!2sSri%20Eshwar%20College%20of%20Engineering%2C%20Coimbatore!5e1!3m2!1sen!2sin!4v1738033952843!5m2!1sen!2sin"
+                    width="750px" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <!-- Contact Information Section -->
+            <div class="contact-info">
+                <p>&copy; <span id="year"></span> Abhishek Kunwar. All rights reserved.</p>
+                <p>Contact: (+91) 7718520329 (India), (+977) 9811936784 (Nepal)</p>
+                <p>Whatsapp: (+91) 7708520329</p>
+
+                <div>
+                    <p>Email: <a href="mailto:abhishekkunwar2023cse@sece.ac.in">abhishekkunwar2023cse@sece.ac.in</a></p>
+                    <p>Address: Coimbatore, Tamil Nadu, India</p>
+                </div>
+
+                <!-- Social Links -->
+                <div class="social-links">
+                    <a href="https://github.com/Abhishekkunwar77" class="social-link" target="_blank"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://mail.google.com" class="social-link" target="_blank"><i
+                            class="fas fa-envelope"></i></a>
+                    <a href="https://www.facebook.com/nishu.kunwar.31" class="social-link" target="_blank"><i
+                            class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/abhishek_kunwar23/" class="social-link" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com" class="social-link" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('mobile');
+        });
+    </script>
+</body>
+
+</html>

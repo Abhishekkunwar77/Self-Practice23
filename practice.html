@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Only for the practice</title>
+  </head>
+  <style>
+    tbody {
+  font-size: 95%;
+  font-style: italic;
+}
+h1 {
+  color: red;
+  font-size: 5em;
+}
+
+body {
+  color: rgb(45, 38, 38);
+  background-color: aqua;
+}
+
+
+tfoot {
+  font-weight: bold;
+}
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #b63c3c;
+    background-color: #f2f2f2;
+    
+}
+span {
+  border: 1px solid black;
+  background-color: lime;
+}
+caption{
+    border: 10 px solid black;
+    background-color: #f2f2f2;
+    font-size: 2em;
+    font-weight: bold;
+    color:greenyellow;
+
+}
+tbody tr:nth-child(even) {
+  background-color: #ff33cc;
+}
+.main-class {
+  margin: 0;
+  background-image: repeating-linear-gradient(
+    to top,
+    lightskyblue 0 2px,
+    transparent 2px 1lh
+  );
+}
+h1 {
+    color:black;
+  text-shadow:
+    1px 1px 1px red,
+    2px 2px 1px red;
+    font-kerning: auto;
+}
+
+
+  </style>
+
+  <body>
+
+<p>
+    <h1> Abhishek</h1>
+  Let's use:
+  <span>Cascading</span>
+  <span>Style</span>
+  <span>Sheets</span>
+</p>
+<p class="main-class"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, quaerat ab? Ad quod eius fugiat porro consectetur ut praesentium, itaque nam corrupti optio asperiores unde adipisci. Autem eos quae id.</p>
+
+ <table border="1" color="red" bgcolor="yellow" width="100%" height="100%" cellspacing="10" cellpadding="10" align="center" valign="center"  >
+  <caption>Abhishek Kunwar</caption>
+    <tr>
+    <td>&nbsp;</td>
+    <td>Knocky</td>
+    <td>Flor</td>
+    <td>Ella</td>
+    <td>Juan</td>
+  </tr>
+  <tr>
+    <td>Breed</td>
+    <td>Jack Russell</td>
+    <td>Poodle</td>
+    <td>Streetdog</td>
+    <td>Cocker Spaniel</td>
+  </tr>
+  <tr>
+    <td>Age</td>
+    <td>16</td>
+    <td>9</td>
+    <td>10</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>Owner</td>
+    <td>Mother-in-law</td>
+    <td>Me</td>
+    <td>Me</td>
+    <td>Sister-in-law</td>
+  </tr>
+  <tr>
+    <td>Eating Habits</td>
+    <td>Eats everyone's leftovers</td>
+    <td>Nibbles at food</td>
+    <td>Hearty eater</td>
+    <td>Will eat till he explodes</td>
+  </tr>
+</table>
+<button>Press me</button><script>
+const btn = document.querySelector("button");
+btn.addEventListener("click", () => {
+  btn.textContent = "YOU CLICKED ME!! ❤️";
+  setTimeout(() => {
+    btn.textContent = "Press me";
+  }, 1000);
+});</script>
+<form action="./payment_page" method="get">
+  <h2>Register for the meetup</h2>
+  <p>
+    <fieldset>
+      <legend>Choose hotel room type (required):</legend>
+      <div>
+        <input type="radio" id="hotelChoice1" name="hotel" value="economy" checked />
+        <label for="hotelChoice1">Economy (+$0)</label>
+
+        <input type="radio" id="hotelChoice2" name="hotel" value="superior" />
+        <label for="hotelChoice2">Superior (+$50)</label>
+
+        <input type="radio" id="hotelChoice3" name="hotel" value="penthouse" disabled />
+        <label for="hotelChoice3">Penthouse (+$150)</label>
+      </div>
+    </fieldset>
+  </p>
+  <p>
+    <fieldset>
+      <legend>Choose classes to attend:</legend>
+      <div>
+        <input type="checkbox" id="yoga" name="yoga" />
+        <label for="yoga">Yoga (+$10)</label>
+
+        <input type="checkbox" id="coffee" name="coffee" />
+        <label for="coffee">Coffee roasting (+$20)</label>
+
+        <input type="checkbox" id="balloon" name="balloon" />
+        <label for="balloon">Balloon animal art (+$5)</label>
+      </div>
+    </fieldset>
+  </p>
+  <p>
+    <label for="transport">How are you getting here:</label>
+    <select name="transport" id="transport">
+      <option value="">--Please choose an option--</option>
+      <option value="plane">Plane</option>
+      <option value="bike">Bike</option>
+      <option value="walk">Walk</option>
+      <option value="bus">Bus</option>
+      <option value="train">Train</option>
+      <option value="jetPack">Jet pack</option>
+    </select>
+  </p>
+  <p>
+    <label for="comments">Any other comments:</label>
+    <textarea id="comments" name="comments" rows="5" cols="33"></textarea>
+  </p>
+  <p>
+    <button>Continue to payment</button>
+  </p>
+</form>
+
+
+
+
+    
+
+  </body>
+</html>

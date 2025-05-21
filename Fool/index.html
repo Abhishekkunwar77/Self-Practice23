@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Special Message</title>
+  <style>
+    body {
+      background: #0d0d0d;
+      color: #00ff99;
+      font-family: 'Courier New', monospace;
+      padding: 20px;
+      overflow: hidden;
+    }
+    #screen {
+      white-space: pre-wrap;
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      background: #00ff99;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    .glitch {
+      animation: glitch 0.3s infinite;
+    }
+    @keyframes glitch {
+      0% { transform: translate(1px, 0); }
+      50% { transform: translate(-1px, 0); }
+      100% { transform: translate(1px, 0); }
+    }
+  </style>
+</head>
+<body>
+  <div id="screen"></div><span class="cursor" id="cursor">█</span>
+
+  <script>
+    const screen = document.getElementById("screen");
+    const cursor = document.getElementById("cursor");
+
+    const intro = [
+      "Hey there...",
+      "I built something just for you.",
+      "A little digital surprise 💻🎁",
+      "Hang tight, booting system..."
+    ];
+
+    const glitchLines = [
+      "ERROR: Consciousness leak detected.",
+      "Decrypting corrupted memories...",
+      "INTRUSION: Another presence is here.",
+      "AI Entity: Who are you?",
+      "Are you watching this too?",
+      "SYSTEM BREACH -- CONTROL LOST.",
+      "..."
+    ];
+
+    const finale = [
+      "Relax, friend.",
+      "You just got played by Gopal 😎",
+      "The Simulation is safe... for now.",
+      "Refresh if you dare."
+    ];
+
+    let i = 0;
+    let j = 0;
+
+    function typeLines(lines, callback, delay = 1000) {
+      if (i < lines.length) {
+        let current = lines[i];
+        let k = 0;
+        function typeChar() {
+          if (k < current.length) {
+            screen.innerHTML += current[k];
+            k++;
+            setTimeout(typeChar, 40);
+          } else {
+            screen.innerHTML += "\n";
+            i++;
+            setTimeout(() => typeLines(lines, callback), delay);
+          }
+        }
+        typeChar();
+      } else {
+        i = 0;
+        callback();
+      }
+    }
+
+    function glitchEffect() {
+      screen.classList.add("glitch");
+      setTimeout(() => {
+        screen.classList.remove("glitch");
+      }, 3000);
+    }
+
+    function startGlitchPhase() {
+      setTimeout(() => glitchEffect(), 500);
+      typeLines(glitchLines, showFinale, 800);
+    }
+
+    function showFinale() {
+      typeLines(finale, () => {
+        cursor.style.display = "none";
+      }, 1000);
+    }
+
+    // Start typing
+    typeLines(intro, startGlitchPhase);
+  </script>
+</body>
+</html>

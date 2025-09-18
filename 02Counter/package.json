@@ -3,13 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-"scripts": {
-  "dev": "node index.js",
-  "test": "echo \"Error: no test specified\" && exit 1"
-}
-
-,
+  "scripts": {
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
+    "prompt-sync": "^4.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

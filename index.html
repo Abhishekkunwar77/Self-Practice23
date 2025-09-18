@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Grid Layout</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto auto auto auto;
+      grid-template-areas:
+        "header header menu"
+        "hero hero hero"
+        "main . image"
+        "main . extra"
+        "banner banner banner";
+      gap: 10px;
+      padding: 10px;
+      height: 100vh;
+    }
+
+    .header {
+      grid-area: header;
+      background-color: #1f1f3e;
+      color: white;
+      padding: 20px;
+    }
+
+    .menu {
+      grid-area: menu;
+      background-color: #ff3d00;
+      color: white;
+      padding: 20px;
+    }
+
+    .hero {
+      grid-area: hero;
+      background-color: #6c80ff;
+      color: white;
+      padding: 40px;
+    }
+
+    .main {
+      grid-area: main;
+      background-color: #202040;
+      color: white;
+      padding: 30px;
+    }
+
+    .image {
+      grid-area: image;
+      background-color: #c0e0e0;
+      padding: 20px;
+    }
+
+    .extra {
+      grid-area: extra;
+      background-color: #63d1a3;
+      padding: 20px;
+    }
+
+    .banner {
+      grid-area: banner;
+      background-color: #ffe066;
+      padding: 25px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-container">
+    <div class="header">HEADER</div>
+    <div class="menu">MENU</div>
+    <div class="hero">HERO</div>
+    <div class="main">MAIN</div>
+    <div class="image">IMAGE</div>
+    <div class="extra">EXTRA</div>
+    <div class="banner">BANNER</div>
+  </div>
+
+</body>
+</html>

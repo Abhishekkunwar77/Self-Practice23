@@ -1,0 +1,30 @@
+.counter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  font-family: Outfit;
+  gap:20px;
+}
+
+.increment {
+    border-radius: 15px;
+  cursor: pointer;
+  color: green;
+  font-size: 20px;
+  border: 1px solid green;
+}
+.decrement {
+    border-radius: 15px;
+  cursor: pointer;
+  color: red;
+  font-size: 20px;
+  border: 1px solid red;
+}
+.reset {
+  cursor: pointer;
+  border-radius: 15px;
+  color: blue;
+  font-size: 20px;
+  border: 1px solid blue;
+}
